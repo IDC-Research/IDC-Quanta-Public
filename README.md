@@ -39,8 +39,3 @@ skills/idc/
       advisory.md            exec-intel, strategy-rec, mkt-oppty, dx-transform
 ```
 
-## Known limitations
-
-- **MCP dependency:** `.mcp.json` declares the IDC connector (`https://mcp.idc.com/mcp`, SSE). Authentication is handled by the Cowork MCP session, so each user signs in with their own entitled IDC account; no credentials are stored in the plugin. Confirm the URL matches your organisation's IDC connector in Cowork connector settings.
-- **Discovery:** `search_search_data_products` returns a relevance-ranked subset (38-43 of 89 libraries in 2026-06-05 testing), not the full catalog; use `qda_qda_list_libraries` for discovery. See `references/mcp-playbook.md`.
-- **SHARE operationType:** a reported 100%-for-all-entries defect was not reproduced on 2026-06-05; the cross-check is retained as a precaution. See `references/mcp-playbook.md`.
