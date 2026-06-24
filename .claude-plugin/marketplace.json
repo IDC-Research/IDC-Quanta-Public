@@ -1,14 +1,14 @@
 {
   "name": "idc-claude-plugin-marketplace",
-  "owner": { "name": "Jorge Bastos" },
+  "owner": { "name": "IDC.com" },
   "metadata": {
-    "description": "Marketplace for distributing IDC's Claude plugins."
+    "description": "IDC Quanta plugin."
   },
   "plugins": [
     {
       "name": "idc",
       "source": "./",
-      "description": "IDC's Claude plugin."
+      "description": "IDC Quanta plugin."
     }
   ]
 }

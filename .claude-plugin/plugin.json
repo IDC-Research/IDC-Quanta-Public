@@ -1,6 +1,6 @@
 {
   "name": "idc-claude-plugin",
-  "version": "0.0.3",
-  "description": "IDC Claude Plugin",
-  "author": { "name": "Jorge Bastos" }
+  "version": "0.0.4",
+  "description": "IDC Quanta plugin",
+  "author": { "name": "IDC.com" }
 }
