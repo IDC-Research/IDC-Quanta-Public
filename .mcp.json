@@ -1,7 +1,7 @@
 {
   "mcpServers": {
-    "idc": {
-      "type": "sse",
+    "idc-quanta-mcp": {
+      "type": "http",
       "url": "https://mcp.idc.com/mcp"
     }
   }

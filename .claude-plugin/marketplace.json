@@ -6,7 +6,7 @@
   },
   "plugins": [
     {
-      "name": "idc",
+      "name": "IDC.com",
       "source": "./",
       "description": "IDC Quanta plugin."
     }
