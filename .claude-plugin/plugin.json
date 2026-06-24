@@ -1,0 +1,6 @@
+{
+  "name": "idc-claude-plugin",
+  "version": "0.0.3",
+  "description": "IDC Claude Plugin",
+  "author": { "name": "Jorge Bastos" }
+}

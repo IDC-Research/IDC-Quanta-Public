@@ -1,0 +1,14 @@
+{
+  "name": "idc-claude-plugin-marketplace",
+  "owner": { "name": "Jorge Bastos" },
+  "metadata": {
+    "description": "Marketplace for distributing IDC's Claude plugins."
+  },
+  "plugins": [
+    {
+      "name": "idc",
+      "source": "./",
+      "description": "IDC's Claude plugin."
+    }
+  ]
+}

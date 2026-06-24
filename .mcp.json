@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "idc": {
+      "type": "sse",
+      "url": "https://mcp.idc.com/mcp"
+    }
+  }
+}
