@@ -1,0 +1,9 @@
+{
+  "name": "idc-quanta",
+  "version": "2.5.0",
+  "description": "IDC Quanta is an AI-powered market intelligence assistant grounded in live IDC research and data. It answers questions across market share, sizing, forecasts, IT spending, vendor evaluation, competitive strategy, emerging technology assessment, and executive briefings — all sourced directly from IDC's Trackers, Spending Guides, and analyst research. Intended exclusively for authorized IDC subscribers.",
+  "author": {
+    "name": "IDC",
+    "email": "idcsupport@idc.com"
+  }
+}

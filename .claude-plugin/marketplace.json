@@ -1,14 +1,21 @@
 {
-  "name": "idc-quanta",
+  "name": "idc-plugins",
   "owner": { "name": "IDC.com" },
   "metadata": {
-    "description": "IDC Quanta plugin."
+    "description": "IDC Quanta plugins."
   },
   "plugins": [
     {
       "name": "idc-quanta",
+      "displayName": "IDC Quanta",
       "source": "./idc-quanta",
-      "description": "IDC Quanta plugin."
+      "description": "Delivers IDC market intelligence and advisory, grounded in live IDC Tracker, Spending Guide, and research data with strict source attribution.",
+      "author": {
+        "name": "IDC",
+        "email": "idcsupport@idc.com"
+      },
+      "category": "productivity",
+      "keywords": ["research", "idc", "quanta"]
     }
   ]
 }

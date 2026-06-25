@@ -56,7 +56,7 @@ For short factual queries, collapse to Headline + Evidence + Source line. The He
 > | Cisco | 41.2% | +1.8 pts | [IDC WW Quarterly Ethernet Switch Tracker, Q3 2025](https://idc.com/link/tracker) |
 > | Arista | 14.8% | +2.4 pts | [IDC WW Quarterly Ethernet Switch Tracker, Q3 2025](https://idc.com/link/tracker) |
 >
-> [Source: IDC WW Quarterly Ethernet Switch Tracker (Q3 2025)](https://idc.com/link/tracker) — link surfaced from MCP response.
+> Source: [IDC WW Quarterly Ethernet Switch Tracker](https://idctracker.com/technology/WW_EI_TRK/info), 2025
 
 *(Use the actual URL returned by the MCP tool. The link above is a placeholder for illustration only.)*
 
@@ -70,20 +70,25 @@ For short factual queries, collapse to Headline + Evidence + Source line. The He
 
 Every claim drawn from IDC data carries a source with a live link wherever the MCP provides one. Accuracy, traceability, and direct access to the source are core to the brand.
 
-**Format — with URL (preferred when MCP returns one):**
-`[Source: IDC, Tracker or Document Name, Date or Version](URL)`
+**Source structure — every IDC citation uses it:**
+`Source: [Title](live IDC URL), Year`
 
-**Format — without URL (when MCP does not return one):**
-`Source: IDC, [Tracker or Document Name], [Date or Version]`
+- **Title** — the exact document or data-product title, reproduced verbatim.
+- **Year** — the publication year, after a comma (from the connector's publication date); always included, even when the title already contains a year or year-range.
+- **Link** — a live IDC hyperlink on the title. Capture it from the search step (`document_url` for research, `library_url` for trackers), carry it through `get_full_document`, and accept any IDC domain (my.idc.com, idctracker.com). Use only a URL the connector returned this session; never fabricate one.
+- **Nothing else** — title, link, and year only; never append the month, the IDC document/container number, an "IDC #" string, the analyst, or other metadata.
+
+Almost every entitled item returns a URL, so a citation should normally carry a live link. If a real figure genuinely has no URL available, show the title without a link rather than dropping it.
 
 **Examples — linked:**
 
-- *[Source: IDC Worldwide Quarterly Mobile Phone Tracker, 2025Q2](https://example.idc.com/tracker/mobile-phone-2025q2)*
-- *[Source: IDC FutureScape: Worldwide AI and Generative AI 2025 Predictions, Oct 2024](https://example.idc.com/doc/futurescapeAI2025)*
+- Source: [IDC Worldwide Quarterly Mobile Phone Tracker](https://idctracker.com/technology/WW_MP_TRK/info), 2025
+- Source: [IDC MarketScape: Worldwide CNAPP 2025 Vendor Assessment](https://my.idc.com/getdoc.jsp?containerId=US53549925&pageType=PRINTFRIENDLY), 2025
+- Source: [Worldwide Service Provider Infrastructure Market Summary and Outlook, 4Q25](https://my.idc.com/getdoc.jsp?containerId=US52812626&pageType=PRINTFRIENDLY), 2025
 
-**Examples — plain (no URL returned by MCP):**
+**Example — rare case, no URL available:**
 
-- *Source: IDC Worldwide Black Book Live Edition, May 2026*
+- Source: IDC Worldwide Black Book Live Edition, 2026
 
 *(The URLs above are illustrative placeholders. Always use the actual URL returned by the MCP tool call — never construct or guess one.)*
 
@@ -93,7 +98,8 @@ Every claim drawn from IDC data carries a source with a live link wherever the M
 - Include the date or version. IDC tracker profiles are revised, and the most recent profile is the authoritative one.
 - When using the IDC MCP connector, default to the most recently published tracker profile, not the profile closest to the queried year.
 - **When the MCP response includes a URL, that URL must appear as a live link in the citation.** In chat, use markdown hyperlink syntax. In exported files, embed as a clickable hyperlink.
-- **Never fabricate a URL.** If no URL is returned by the MCP, use the plain-text format. A missing link is acceptable; a wrong link is not.
+- **Never fabricate a URL.** Capture the URL from the search result (`document_url` or `library_url`) and carry it through full-document fetches; accept any IDC domain. If a real figure still has no URL, show the title without a link. A missing link is acceptable; a wrong link is not.
+- **Never invent a title.** Use a document's title only if the tool returns it verbatim. For types with no title field (IDC Links, Quick Takes, Vendor Profiles, Executive Snapshots), cite by container ID, document type, and date with a short parenthetical descriptor — not a quoted title. A wrong title on a real document is worse than an obvious gap.
 - If a number can't be sourced, say so. Don't fabricate the citation.
 - For competitive or directional claims without a specific tracker, attribute to "IDC analyst view" or omit the citation rather than overclaim.
 
@@ -111,7 +117,7 @@ All IDC Skill outputs — whether in chat or exported — favor scannability. Ap
 Before sending an IDC-grounded response, verify:
 
 1. **Lead** — does the first sentence carry the insight or the number?
-2. **Source** — is every IDC data point cited with tracker name and date?
+2. **Source** — does every IDC data point carry the source (`Source: [Title](link), Year`) right after it, with no month, document number, or extra metadata, per Rule 3?
 3. **Links** — for every citation where the MCP returned a URL, is a live hyperlink present? If a URL was available in the tool response and is absent from the citation, add it before sending.
 4. **Implication** — is there a "so what" the reader can act on?
 5. **Voice** — direct, warm, no AI-speak openers, no clichés? (applies in chat and in all exported files)
