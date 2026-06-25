@@ -11,7 +11,7 @@ Read this file when the dispatcher routes to: idc.exec-intel, idc.strategy-rec, 
 **Workflow**:
 
 1. Identify the executive decision type: investment thesis validation, M&A market context, or budget justification. Each routes to a different evidence stack.
-2. Pull the data assets relevant to the decision type. For all three, start with `search_lookup_entities` to resolve the focal market and entities, then `qda_qda_list_libraries` to identify the right libraries (full-catalog discovery; `search_search_data_products` returns only a ranked subset and should not be the primary discovery path — see Known MCP issues).
+2. Pull the data assets relevant to the decision type. For all three, start with `search_lookup_entities` to resolve the focal market and entities, then `qda_qda_list_libraries` to identify the right libraries (full-catalog discovery; `search_search_data_products` returns only a ranked subset and should not be the primary discovery path).
    - Investment thesis: run `idc.tam` (or `idc.market-size`) and a competitive intensity pass from `idc.comp-share`.
    - M&A: add startup activity and funding signals from Fact Lake via `search_search_documents`, and competitor financial benchmarks via `qda_qda_execute_query` against the relevant tracker.
    - Budget justification: add a peer benchmark comparison via `idc.spend-bench` (or `idc.acct-spending`) and market opportunity sizing via `idc.market-size`.

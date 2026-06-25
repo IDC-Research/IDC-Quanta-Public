@@ -12,7 +12,7 @@ Read this file when the dispatcher routes to: idc.market-size, idc.tam, idc.it-o
 
 1. Parse the sizing request for technology, geography, vertical, segment, and time horizon. If horizon is missing, default to 5 years and state the assumption.
 2. Resolve named entities via `search_lookup_entities`.
-3. Identify which spending forecast programs cover the requested scope via `qda_qda_list_libraries` / `qda_qda_list_datasets` (the full-catalog discovery path). `search_search_data_products` returns only a ranked subset, so use it only as a spot-check (see Known MCP issues). Build the full list before querying.
+3. Identify which spending forecast programs cover the requested scope via `qda_qda_list_libraries` / `qda_qda_list_datasets` (the full-catalog discovery path). `search_search_data_products` returns only a ranked subset, so use it only as a spot-check. Build the full list before querying.
 4. For each relevant program, call `qda_qda_gather_context_for_dataset` and `qda_qda_list_attributes_values`, then `qda_qda_execute_query`. If multiple programs overlap (for example, Black Book and a vertical Spending Guide), cross-validate estimates and surface any discrepancies with confidence annotations (high, medium, or low confidence based on agreement across programs).
 5. Build a layered model: total market → addressable segments → growth rate by segment → optional market share overlay if the user references a focal company.
 6. If high-growth segments have low company share, flag them as priority opportunities with the supporting IDC data.
@@ -31,7 +31,7 @@ Read this file when the dispatcher routes to: idc.market-size, idc.tam, idc.it-o
 
 1. Capture the market definition parameters: technology, geography, vertical, segment. If the definition does not map cleanly to IDC taxonomy, propose the closest alignment and explain boundary differences.
 2. Resolve all entities via `search_lookup_entities`.
-3. Query IDC spending guides (ICT SG, DX SG, Industry SGs) and Black Book for relevant market estimates via `qda_qda_list_libraries` / `qda_qda_list_datasets` (full-catalog discovery; `search_search_data_products` returns only a ranked subset — see Known MCP issues), then `qda_qda_execute_query` for TAM/SAM/SOM by market, region, product line, vertical, and segment.
+3. Query IDC spending guides (ICT SG, DX SG, Industry SGs) and Black Book for relevant market estimates via `qda_qda_list_libraries` / `qda_qda_list_datasets` (full-catalog discovery; `search_search_data_products` returns only a ranked subset), then `qda_qda_execute_query` for TAM/SAM/SOM by market, region, product line, vertical, and segment.
 4. If multiple IDC programs cover the same market, cross-validate estimates and surface discrepancies with confidence ranges.
 5. Build a layered model: TAM (full market) → SAM (addressable by company capability) → SOM (realistic capture based on current share and market growth rates). State assumptions inline.
 6. Identify which areas grow fastest and where the company has low share in high-growth markets.

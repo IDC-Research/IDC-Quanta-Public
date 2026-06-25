@@ -1,6 +1,6 @@
-# idc v1.4 (modular)
+# idc v1.0.0 (modular)
 
-IDC market intelligence and advisory skill for Cowork, invoked via `/idc`. A lean dispatcher routes each request to one of 20 specialist routes, then loads the matching reference file and runs its workflow. This is the modular rebuild of the v1.4 monolith — same content and behavior, reorganized for maintainability.
+IDC market intelligence and advisory skill for Cowork, invoked via `/idc`. A lean dispatcher routes each request to one of 20 specialist routes, then loads the matching reference file and runs its workflow. This is the modular rebuild of the earlier monolithic skill — same content and behavior, reorganized for maintainability.
 
 ## Routes by cluster
 
@@ -15,20 +15,29 @@ IDC market intelligence and advisory skill for Cowork, invoked via `/idc`. A lea
 
 ## Prerequisites
 
-- IDC MCP configured globally in Cowork: `claude mcp add --transport http idc https://mcp.idc.com/mcp`
 - Active IDC subscription with entitlement to the trackers, spending guides, and research you intend to query
+
+## Authentication
+
+This plugin bundles its own IDC MCP server (see `.mcp.json`) — you do not need to add one separately. The server authenticates over OAuth:
+
+1. Install and enable the plugin.
+2. On first use, run `/mcp`, select the `idc` server, and authenticate. Claude Code opens the IDC login page in your browser.
+3. After you log in, the token is stored and reused, and renews automatically.
+
+No API key configuration is required. On a headless or SSH session, run `claude mcp login idc` to get a paste-back URL; check status anytime with `claude mcp get idc`.
 
 ## Files
 
 ```
 .claude-plugin/plugin.json   Plugin manifest
-.mcp.json                    MCP connection (inherits global session)
+.mcp.json                    Bundled IDC MCP server (OAuth on first use)
 README.md                    This file
 skills/idc/
-  SKILL.md                   Dispatcher — protocol, routing table, precedence, disclosure
+  SKILL.md                   Dispatcher — protocol, routing table, precedence
   references/
     rules.md                 The nine operating rules (read first, every request)
-    mcp-playbook.md          MCP tool reference, QDA chain, known issues, SHARE cross-check
+    mcp-playbook.md          MCP tool reference, QDA chain, discovery path
     brand-voice.md           IDC brand voice + four-part response structure + citation standards
     routes/
       market-sizing.md       market-size, tam, it-outlook

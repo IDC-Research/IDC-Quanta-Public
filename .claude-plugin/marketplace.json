@@ -1,5 +1,5 @@
 {
-  "name": "idc-claude-plugin-marketplace",
+  "name": "idc-marketplace",
   "owner": { "name": "IDC.com" },
   "metadata": {
     "description": "IDC Quanta plugin."
