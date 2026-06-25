@@ -1,5 +1,5 @@
 {
-  "name": "idc-marketplace",
+  "name": "idc",
   "owner": { "name": "IDC.com" },
   "metadata": {
     "description": "IDC Quanta plugin."
@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "idc",
-      "source": "./idc-plugin",
+      "source": "./idc",
       "description": "IDC Quanta plugin."
     }
   ]
