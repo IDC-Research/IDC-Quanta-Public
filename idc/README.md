@@ -1,6 +1,6 @@
 # idc v1.0.0 (modular)
 
-IDC market intelligence and advisory skill for Cowork, invoked via `/idc`. A lean dispatcher routes each request to one of 20 specialist routes, then loads the matching reference file and runs its workflow. This is the modular rebuild of the earlier monolithic skill — same content and behavior, reorganized for maintainability.
+IDC market intelligence and advisory skill for Cowork, invoked via `/idc-quanta`. A lean dispatcher routes each request to one of 20 specialist routes, then loads the matching reference file and runs its workflow. This is the modular rebuild of the earlier monolithic skill — same content and behavior, reorganized for maintainability.
 
 ## Routes by cluster
 

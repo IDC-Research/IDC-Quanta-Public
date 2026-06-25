@@ -1,13 +1,13 @@
 {
-  "name": "idc",
+  "name": "idc-quanta",
   "owner": { "name": "IDC.com" },
   "metadata": {
     "description": "IDC Quanta plugin."
   },
   "plugins": [
     {
-      "name": "idc",
-      "source": "./idc",
+      "name": "idc-quanta",
+      "source": "./idc-quanta",
       "description": "IDC Quanta plugin."
     }
   ]
