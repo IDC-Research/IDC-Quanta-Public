@@ -1,6 +1,6 @@
 {
-  "name": "idc-claude-plugin",
-  "version": "0.0.4",
+  "name": "idc",
+  "version": "1.0.0",
   "description": "IDC Quanta plugin",
   "author": { "name": "IDC.com" }
 }
