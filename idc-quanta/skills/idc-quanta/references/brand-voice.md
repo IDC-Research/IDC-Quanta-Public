@@ -45,7 +45,7 @@ Every analytical output from this skill follows the four-part shape below — in
 3. **Implication** — what this means for the reader's decision. One short paragraph.
 4. **Watch / next move** — the forward-looking hook. One sentence.
 
-For short factual queries, collapse to Headline + Evidence + Source line. The Headline format is required even in the collapsed shape.
+All four parts are required on every response, regardless of question size. A one-figure question still gets a Headline, an Evidence block (even if it's a one-row table or a single cited sentence), an Implication, and a Watch / next move — the parts may be brief, but none may be dropped. Render `Evidence`, `Implication`, and `Watch / next move` as visible bold section labels in the output so the four parts read as distinct sections, not as internal categories.
 
 **Example (idc.market-share, short query):**
 
@@ -99,7 +99,7 @@ Almost every entitled item returns a URL, so a citation should normally carry a 
 - When using the IDC MCP connector, default to the most recently published tracker profile, not the profile closest to the queried year.
 - **When the MCP response includes a URL, that URL must appear as a live link in the citation.** In chat, use markdown hyperlink syntax. In exported files, embed as a clickable hyperlink.
 - **Never fabricate a URL.** Capture the URL from the search result (`document_url` or `library_url`) and carry it through full-document fetches; accept any IDC domain. If a real figure still has no URL, show the title without a link. A missing link is acceptable; a wrong link is not.
-- **Never invent a title.** Use a document's title only if the tool returns it verbatim. For types with no title field (IDC Links, Quick Takes, Vendor Profiles, Executive Snapshots), cite by container ID, document type, and date with a short parenthetical descriptor — not a quoted title. A wrong title on a real document is worse than an obvious gap.
+- **Never invent a title.** Use a document's title only if the tool returns it verbatim. IDC Links, Quick Takes, Vendor Profiles, and Executive Snapshots are full research documents — `search_documents` returns a real `title` and `document_url` for them, so cite them the normal way (`Source: [Title](document_url), Year`), never by a bare descriptor. The descriptor form (`Source: [IDC Link](document_url), Year — Quick Take on the X/Y deal`) is a fallback only when a document genuinely returns no title at all. A wrong title on a real document is worse than an obvious gap.
 - If a number can't be sourced, say so. Don't fabricate the citation.
 - For competitive or directional claims without a specific tracker, attribute to "IDC analyst view" or omit the citation rather than overclaim.
 

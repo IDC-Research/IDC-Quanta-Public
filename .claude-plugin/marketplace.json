@@ -12,7 +12,7 @@
       "description": "Delivers IDC market intelligence and advisory, grounded in live IDC Tracker, Spending Guide, and research data with strict source attribution.",
       "author": {
         "name": "IDC",
-        "email": "idcsupport@idc.com"
+        "email": "idc_support@idc.com"
       },
       "category": "productivity",
       "keywords": ["research", "idc", "quanta"]

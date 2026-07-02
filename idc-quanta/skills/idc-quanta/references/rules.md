@@ -1,6 +1,6 @@
 # IDC Skill — Operating Rules
 
-Read this file at the start of every `/idc-quanta` request and apply all nine rules. They are the non-negotiable operating constraints for the skill: they govern when to call IDC tools, how to cite, how to rank documents, and how to keep every answer IDC-sourced. The dispatcher does not repeat them, so they must be read here.
+Read this file at the start of every `/idc-quanta` request and apply all nine rules. They are the non-negotiable operating constraints for the skill: they govern when to call IDC tools, how to cite, how to rank documents, how to handle event-driven queries, and how to keep every answer IDC-sourced. The dispatcher does not repeat them, so they must be read here.
 
 ## Rule 1. Always call IDC MCP tools before answering.
 
@@ -33,9 +33,11 @@ In multi-turn conversations, every IDC-sourced answer must stay IDC-sourced. If 
 
 Do not silently introduce facts from training data, public news, or other sources. If you find yourself about to mention something that did not come from an IDC tool call in this conversation, stop and either call the IDC tools again to verify, or explicitly flag the source as non-IDC. The exception is if the user explicitly asks to use a specific source.
 
-## Rule 5. Full research outranks non-research (hard floor).
+## Rule 5. Full research outranks non-research (hard floor, with event-oriented exception).
 
 IDC blogs, document abstracts, press releases, and marketing materials always rank below any full IDC research document. This is a hard rule and does not vary by intent or recency.
+
+**Event-oriented exception:** when a query is explicitly news- or event-driven — for example, "What has [vendor] announced recently?", "What just happened with [company]?", or any request whose primary intent is to surface the latest discrete development rather than substantive analysis — IDC Links, IDC Blinks, and Market Notes may be elevated to primary and ranked by recency. This exception applies only when the query's dominant intent is the event itself; it does not permit these document types to displace substantive full-research documents when the user's underlying need is analysis, framing, or market context.
 
 ## Rule 6. Framework documents are always relevancy-weighted.
 
@@ -53,17 +55,15 @@ Some routes favor the most recent document. Others favor the most topically rele
 
 **Emerging technology exception:** for AI, generative AI, and agentic systems, recency weight is elevated even in relevancy-first routes. Documents older than 12 months should be treated with caution and supplemented with newer sources where available.
 
-## Rule 8. Parent vs child documents.
-
-**Parent documents** (foundational, framework, or scoping content) serve market sizing, trend analysis, self-benchmarking, definitions, research discovery, strategic advisory, and content generation. Examples: FutureScapes, Market Glances, Perspectives, TechBriefs, TechScapes, MaturityScapes, Planning Guides, PlanScapes, Tech Buyer Presentations, MarketScapes, PeerScapes, Market Analysis Perspectives, Market Perspectives, Taxonomies, Technology Assessments, IDC Surveys.
-
-**Child documents** (derivative, specific, or operational content) serve vendor revenue and share, data extraction, vendor profiles, comparisons, negotiation. Examples: Survey Spotlights, Tech Buyer Survey Spotlights, MaturityScape Benchmarks, Innovators, ProductScapes, Market Forecasts, Market Presentations, Market Share reports, CIS Vendor Profiles, IDC Links, IDC Blinks, Market Notes.
-
-**Parent-First Materiality Override:** parent-first preference yields to a child document when the parent is materially outdated (default threshold: 16 months) and the query is recency-sensitive. Framework documents (TechScapes, MaturityScapes, Taxonomies, Planning Guides) are exempt from this override per Rule 6.
-
-## Rule 9. Data vs research product source-of-truth.
+## Rule 8. Data vs research product source-of-truth.
 
 **Data takes precedence over research documents.** When a data product and a research report contain the same figure for the same scope, cite the data product.
+
+## Rule 9. Follow user source instructions, but flag outdated or misaligned sources.
+
+When a user explicitly requests a specific source, document type, or data product, follow that instruction. Do not override the user's stated preference in favor of the default document hierarchy.
+
+However, if the requested source is materially outdated (generally older than 16 months for recency-sensitive topics) or methodologically misaligned with the question (for example, a demand-side Spending Guide cited for a supply-side vendor share question), surface a brief inline note immediately after the citation — for example: *Note: this source is from [year]; more current IDC data may be available.* or *Note: this source measures buyer spend rather than vendor revenue, which may not directly answer the question.* Continue with the user's requested source; the note is informational, not a refusal.
 
 ## Confidence scale (label every response on header line 3)
 
