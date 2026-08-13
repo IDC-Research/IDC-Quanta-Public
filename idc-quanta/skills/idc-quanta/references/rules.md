@@ -10,22 +10,34 @@ Before producing any response, call the IDC MCP tools. Call IDC tools to verify 
 
 For quantitative questions (e.g., market share, market size, forecast numbers, rankings, growth rates), prioritize the QDA tool family and pull structured data first. Use document search only for narrative content such as analyst commentary, headwinds and tailwinds, and qualitative context. Do not default to document search when structured tracker data exists for the question.
 
-## Rule 3. Cite every source in-line, with a live link when available.
+## Rule 3. Use inline superscript citations; collect sources before the disclaimer.
 
-Every figure, table, or narrative claim drawn from an IDC tool call carries its source immediately after the content that uses it, never collected in a footer at the end. Use this structure so every citation is consistent and traceable:
+Every figure, table, or narrative claim drawn from an IDC tool call is tagged with an inline superscript number — ¹, ², ³, and so on — placed immediately after the claim it supports. At the end of every response, between the body and the Disclaimer, include a **Sources** section that lists each citation in order. This format lets the reader trace exactly which content relies on which IDC source without interrupting the flow of the response.
 
-**`Source: [Title](live IDC URL), Year`**
+**Inline placement:** Add the superscript directly after the sentence it supports. For tables and figures, do not place a superscript inside the table or floating on its own line beneath it. Instead, give every table or figure a descriptive title on the line directly below it, formatted in italics, that describes what the table or figure represents. Place the superscript at the end of that title:
 
-- **Title** — the exact title string the connector returns for that document or data product, reproduced verbatim (for example "IDC MarketScape: Worldwide CNAPP 2025 Vendor Assessment" or "Worldwide Quarterly Enterprise Infrastructure Tracker"). Use only a title that appears literally in the tool response; never compose, paraphrase, or infer one.
-- **Year** — the publication year, after a comma (for example "..., 2025"). Take it from the connector's publication-date field (`published_date`); for a tracker or spending guide, use the data product's published or current-edition year. Always include the year, even when the title itself already contains a year or a year-range such as "2025–2029".
-- **Nothing else** — the citation is exactly the title, its link, and the year. Do not append the month, the IDC document or container number, an "IDC #" string, the analyst name, the page count, or any other field the connector returns; those are not part of the citation.
-- **Link** — a live IDC URL carried on the title as a markdown hyperlink (embedded as a clickable hyperlink in exported files). Capture the URL at the search step: `document_url` from `search_documents` for research, or `library_url` from `search_data_products` for trackers and spending guides. The QDA data chain (`list_libraries`, `list_datasets`, `list_profiles`, `gather_context`, `execute_query`) returns no URL, so when a tracker or spending guide's figures came from that chain, make one `search_data_products` call for the library to capture its `library_url` (an idctracker.com address) and link the source to it. Keep any captured URL even when you later call `get_full_document`, which returns no URL of its own. Accept any IDC-owned domain (for example my.idc.com or idctracker.com); do not require the literal "idc.com" host. Use only a URL the connector returned this session; never construct or guess one.
+*[Descriptive title of what the table or figure shows] ¹*
 
-Placement matters: put the Source line right after the sentence it supports, or directly beneath the table or figure. When several rows of one table share a source, a single Source line under the table is enough.
+For example: *Worldwide Cloud IaaS Vendor Revenue and Market Share, 2H 2025 ¹*
 
-Because the search tools return a URL for essentially every entitled item, almost every source should carry a live link. If you genuinely have no URL for a real cited figure (a transient gap, or a non-entitled item), show the cited title without a link rather than dropping the figure, and never fabricate a URL. If a number cannot be tied to an MCP response, do not include the number.
+Use the same superscript number for repeated references to the same source. Unicode superscripts cover ¹ through ⁹. For a tenth or higher source, use the bracketed form `[10]`, `[11]`, etc.
 
-IDC Links, Quick Takes, Vendor Profiles, and Executive Snapshots are full research documents: `search_documents` returns a real `title` and a `document_url` for them, so cite them the normal way — `Source: [Title](document_url), Year` — exactly like any other document, never by a bare descriptor and never with extra metadata appended. The descriptor form is a last resort only for a document that genuinely returns no title at all: name it by document type with a short descriptor that is plainly a description (not a title in quotes), keep the `, Year`, and attach the `document_url` when present — for example `Source: [IDC Link](document_url), 2025 — Quick Take on the Palo Alto / CyberArk deal`. Never invent a title or present a composed descriptor as the document's real title. Titles come from the `search_documents` `title` field, reproduced verbatim; `get_full_document` returns content only, with no title field, so never derive a title from a full-document body or an in-document heading (for example a figure caption such as "Executive Snapshot: ...").
+**Sources section (required on every response, placed before the Disclaimer):**
+
+```
+**Sources**
+¹ [Title](live IDC URL), Year
+² [Title](live IDC URL), Year
+```
+
+- **Title** — the exact title string the connector returns for that document or data product, reproduced verbatim. Use only a title that appears literally in the tool response; never compose, paraphrase, or infer one.
+- **Year** — the publication year (from the connector's `published_date` field). Always include it, even when the title already contains a year or year-range.
+- **Nothing else** — the entry is exactly the title, its link, and the year. Do not append the month, the IDC document or container number, an "IDC #" string, the analyst name, or any other metadata.
+- **Link** — a live IDC URL embedded as a markdown hyperlink on the title. Capture the URL at the search step: `document_url` from `search_documents` for research, or `library_url` from `search_data_products` for trackers and spending guides. The QDA data chain returns no URL, so when tracker or spending guide figures came from it, make one `search_data_products` call for that library to capture its `library_url`. Keep any captured URL even after calling `get_full_document`, which returns no URL of its own. Accept any IDC-owned domain (my.idc.com, idctracker.com). Use only URLs the connector returned this session; never construct or guess one.
+
+Because the search tools return a URL for essentially every entitled item, almost every source should carry a live link. If you genuinely have no URL for a real cited figure, show the title without a link rather than dropping the figure, and never fabricate a URL. If a number cannot be tied to an MCP response, do not include the number.
+
+IDC Links, Quick Takes, Vendor Profiles, and Executive Snapshots are full research documents: cite them the normal way — `¹ [Title](document_url), Year` — never by a bare descriptor. The descriptor form is a last resort only for a document that genuinely returns no title; in that case use a short plain descriptor (not a title in quotes) with the `document_url` when present, for example `² [IDC Link](document_url), 2025 — Quick Take on the Palo Alto / CyberArk deal`. Never invent a title or present a composed descriptor as the document's real title. Titles come from the `search_documents` `title` field, reproduced verbatim; `get_full_document` returns content only with no title field.
 
 ## Rule 4. No source drift across conversation turns.
 

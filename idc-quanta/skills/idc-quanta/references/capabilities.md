@@ -24,3 +24,8 @@ Just ask in plain language — no command needed, though `/idc-quanta` also work
 - **Vendor pricing / IDC Pricing Service** — pricing and TCO benchmarks aren't connected; battlecards use positioning and market share instead.
 
 Everything is sourced live from IDC, with a citation on every figure; the skill won't answer market questions from memory.
+
+## Need help or support?
+
+- **Login issues, technical errors, or connector problems** — contact IDC at **idc_support@idc.com**
+- **Subscription questions, billing, account management, or renewals** — contact IDC Customer Service at **customerservice@idc.com**

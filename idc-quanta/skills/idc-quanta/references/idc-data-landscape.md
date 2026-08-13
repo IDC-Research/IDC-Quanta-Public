@@ -70,7 +70,7 @@ All Spending Guide data is at industry, segment, or category level. None of it i
 | Worldwide 3rd Platform Spending Guide: Government | 82 | Government 3rd-platform spend |
 | Worldwide 3rd Platform Spending Guide: Healthcare | 83 | Healthcare 3rd-platform spend |
 
-Note: Joe's draft listed a "Robotics and Drones Spending Guide (104)". That library is not in the current live catalog, so it is omitted here; use the Robotics Trackers (277/343) for robotics, or confirm via `qda_qda_list_libraries`.
+Note: A Robotics and Drones Spending Guide is not in the current live catalog; use the Robotics Trackers (277/343) for robotics, or confirm via `qda_qda_list_libraries`.
 
 ## Question-to-library routing matrix
 
@@ -110,7 +110,7 @@ This matches the user-facing limits in `references/capabilities.md`. Apply the m
 
 ## Discovery note
 
-`search_search_data_products` returns only a relevance-ranked subset of the catalog (not a hard cap, per live testing on 2026-06-05; see `references/mcp-playbook.md`), so it can miss the right library. Use `qda_qda_list_libraries` as the primary discovery path and cache its result for the session; use `search_search_data_products` only as a keyword spot-check. A library's live link is the `library_url` returned by `search_data_products` (an idctracker.com address); the QDA chain returns no URL, so call `search_data_products` for a library when you need its link for a citation.
+`search_search_data_products` returns only a relevance-ranked subset of the catalog, so it can miss the right library. Use `qda_qda_list_libraries` as the primary discovery path and cache its result for the session; use `search_search_data_products` only as a keyword spot-check. A library's live link is the `library_url` returned by `search_data_products` (an idctracker.com address); the QDA chain returns no URL, so call `search_data_products` for a library when you need its link for a citation.
 
 ## Scope and vintage caveats
 
