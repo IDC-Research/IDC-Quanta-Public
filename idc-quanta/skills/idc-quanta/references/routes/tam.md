@@ -8,7 +8,7 @@ Read this file when the dispatcher selects the idc.tam route. Run its workflow i
 
 1. Capture the market definition parameters: technology, geography, vertical, segment. If the definition does not map cleanly to IDC taxonomy, propose the closest alignment and explain boundary differences.
 2. Resolve all entities via `search_lookup_entities`.
-3. Query IDC spending guides (ICT SG, DX SG, Industry SGs) and Black Book for relevant market estimates via `qda_qda_list_libraries` / `qda_qda_list_datasets` (full-catalog discovery; `search_search_data_products` returns only a ranked subset — see Known MCP issues), then `qda_qda_execute_query` for TAM/SAM/SOM by market, region, product line, vertical, and segment.
+3. Query IDC spending guides (ICT SG, DX SG, Industry SGs) and Black Book for relevant market estimates via `qda_qda_list_libraries` / `qda_qda_list_datasets` (full-catalog discovery; `search_search_data_products` returns only a ranked subset), then `qda_qda_execute_query` for TAM/SAM/SOM by market, region, product line, vertical, and segment.
 4. If multiple IDC programs cover the same market, cross-validate estimates and surface discrepancies with confidence ranges.
 5. Build a layered model: TAM (full market) → SAM (addressable by company capability) → SOM (realistic capture based on current share and market growth rates). State assumptions inline.
 6. Identify which areas grow fastest and where the company has low share in high-growth markets.
